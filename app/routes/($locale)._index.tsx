@@ -4,7 +4,7 @@ import {
   type LoaderFunctionArgs,
 } from '@shopify/remix-oxygen';
 import {Suspense} from 'react';
-import {Await, useLoaderData} from '@remix-run/react';
+import {Await, PrefetchPageLinks, useLoaderData} from '@remix-run/react';
 import {getSeoMeta} from '@shopify/hydrogen';
 
 import {Hero} from '~/components/Hero';
@@ -155,6 +155,8 @@ export default function Homepage() {
 
   return (
     <>
+      <PrefetchPageLinks page="/collections/freestyle" />
+      <PrefetchPageLinks page="/products/snowboard" />
       {primaryHero && (
         <Hero {...primaryHero} height="full" top loading="eager" />
       )}
