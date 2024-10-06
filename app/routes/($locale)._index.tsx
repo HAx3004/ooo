@@ -21,6 +21,8 @@ export async function loader(args: LoaderFunctionArgs) {
   const {params, context} = args;
   const {language, country} = context.storefront.i18n;
 
+  console.error(new Error('this is an error'));
+
   if (
     params.locale &&
     params.locale.toLowerCase() !== `${language}-${country}`.toLowerCase()
